@@ -15,6 +15,8 @@
 		DB47FC5E245A8146001D7F7E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DB47FC5C245A8146001D7F7E /* LaunchScreen.storyboard */; };
 		DB47FC69245A8146001D7F7E /* ConcentrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47FC68245A8146001D7F7E /* ConcentrationTests.swift */; };
 		DB47FC74245A8147001D7F7E /* ConcentrationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47FC73245A8147001D7F7E /* ConcentrationUITests.swift */; };
+		DB47FC82245A9CB1001D7F7E /* Concentration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47FC81245A9CB0001D7F7E /* Concentration.swift */; };
+		DB47FC84245A9D9F001D7F7E /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = DB47FC83245A9D9F001D7F7E /* Card.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		DB47FC6F245A8147001D7F7E /* ConcentrationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ConcentrationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DB47FC73245A8147001D7F7E /* ConcentrationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConcentrationUITests.swift; sourceTree = "<group>"; };
 		DB47FC75245A8147001D7F7E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DB47FC81245A9CB0001D7F7E /* Concentration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Concentration.swift; sourceTree = SOURCE_ROOT; };
+		DB47FC83245A9D9F001D7F7E /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +104,8 @@
 			isa = PBXGroup;
 			children = (
 				DB47FC51245A8144001D7F7E /* AppDelegate.swift */,
+				DB47FC81245A9CB0001D7F7E /* Concentration.swift */,
+				DB47FC83245A9D9F001D7F7E /* Card.swift */,
 				DB47FC53245A8144001D7F7E /* SceneDelegate.swift */,
 				DB47FC55245A8144001D7F7E /* ViewController.swift */,
 				DB47FC57245A8144001D7F7E /* Main.storyboard */,
@@ -260,6 +266,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DB47FC56245A8144001D7F7E /* ViewController.swift in Sources */,
+				DB47FC82245A9CB1001D7F7E /* Concentration.swift in Sources */,
+				DB47FC84245A9D9F001D7F7E /* Card.swift in Sources */,
 				DB47FC52245A8144001D7F7E /* AppDelegate.swift in Sources */,
 				DB47FC54245A8144001D7F7E /* SceneDelegate.swift in Sources */,
 			);
@@ -436,6 +444,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Concentration/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -443,7 +452,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.training.Concentration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -453,6 +462,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = Concentration/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -460,7 +470,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.training.Concentration;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
