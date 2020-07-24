@@ -17,9 +17,9 @@ class ChatViewController: UIViewController {
     
     let db = Firestore.firestore()
     var messages: [Message] = [
-        Message(sender: "1@2.com", body: "Hey!"),
-        Message(sender: "a@b.com", body: "Yooo!"),
-        Message(sender: "g@h.com", body: "Hiiii!")
+//        Message(sender: "1@2.com", body: "Hey!"),
+//        Message(sender: "a@b.com", body: "Yooo!"),
+//        Message(sender: "g@h.com", body: "Hiiii!")
     ]
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,12 +34,29 @@ class ChatViewController: UIViewController {
     
     func loadData()
     {
-        messages = []
-        db.collection(K.FStore.collectionName).getDocuments { (querySnapshot, error) in
+        
+        db.collection(K.FStore.collectionName)
+            .order(by: K.FStore.dateField)
+            .addSnapshotListener { (querySnapshot, error) in
+            self.messages = []
             if let e=error{
                 print("There was an issue retreiving data from firestore")
             }else{
-//                querySnapshot?.documents
+                if let snapshotDocuments = querySnapshot?.documents
+                {
+                    for doc in snapshotDocuments{
+                        let data = doc.data()
+                        if let messageSender = data[K.FStore.senderField] as? String, let messageBody = data[K.FStore.bodyField] as? String{
+                            let newMessage = Message(sender: messageSender, body: messageBody)
+                            self.messages.append(newMessage)
+                            DispatchQueue.main.async {
+                                self.tableView.reloadData()
+                            }
+                            
+                        }
+                        
+                    }
+                }
             }
         }
     }
@@ -49,7 +66,8 @@ class ChatViewController: UIViewController {
         if let messageBody = messageTextfield.text, let sender = Auth.auth().currentUser?.email{
             db.collection(K.FStore.collectionName).addDocument(data: [
                 K.FStore.senderField: sender,
-                K.FStore.bodyField: messageBody
+                K.FStore.bodyField: messageBody,
+                K.FStore.dateField: Date().timeIntervalSince1970
             ]){ (error) in
                 if let e = error{
                     print("There was an error, \(e)")
